@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace Final_Project.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]")] // Sets the url end point - i.e. [controller] sets to the default, but you could have it be "wf"
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
