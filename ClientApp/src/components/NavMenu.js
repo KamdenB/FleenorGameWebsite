@@ -28,7 +28,7 @@ export class NavMenu extends Component {
       <header>
         <Navbar className="navbar-expand-sm navbar-toggleable-sm bg-primary border-bottom box-shadow mb-3" light>
           <Container>
-            <NavbarBrand tag={Link} to="/" className="text-light">CSC131 Final Project</NavbarBrand>
+            <NavbarBrand tag={Link} to="/" className="text-light">Fleenor Game Stats</NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
               <ul className="navbar-nav flex-grow">
