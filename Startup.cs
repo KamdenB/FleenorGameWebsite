@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,13 +8,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Final_Project
+namespace FGWebsite
 {
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            LoadEnvVariables env = new LoadEnvVariables();
+            env.Load(".env");
         }
 
         public IConfiguration Configuration { get; }
@@ -66,6 +70,23 @@ namespace Final_Project
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
+        }
+    }
+
+    public class LoadEnvVariables {
+        public void Load(string filePath)
+        {
+            if(!File.Exists(filePath))
+                return;
+        
+            foreach(var line in File.ReadAllLines(filePath))
+            {
+                var parts = line.Split('=', StringSplitOptions.RemoveEmptyEntries);
+                if(parts.Length != 2)
+                    continue;
+                Environment.SetEnvironmentVariable(parts[0], parts[1]);
+                Console.WriteLine("Added environrmentable variable: " + parts[0]);
+            }     
         }
     }
 }

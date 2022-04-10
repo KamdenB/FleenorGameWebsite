@@ -1,5 +1,5 @@
 # CSC132FinalProject
-Cornerstone University CSC132 Final Project 2022
+Cornerstone University CSC132 Fleenor Game 2022
 <hr>
 Ojective:<br>
 Display stats from Ian's team's game

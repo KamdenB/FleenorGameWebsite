@@ -1,6 +1,6 @@
 using System;
 
-namespace Final_Project
+namespace FGWebsite
 {
     public class WeatherForecast
     {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Final_Project.Controllers
+namespace FGWebsite.Controllers
 {
     [ApiController]
     [Route("[controller]")] // Sets the url end point - i.e. [controller] sets to the default, but you could have it be "wf"
