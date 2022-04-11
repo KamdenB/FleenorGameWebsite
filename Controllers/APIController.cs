@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections;
 
 // using MongoDB.Bson;
 // using MongoDB.Driver;
@@ -59,15 +60,16 @@ namespace FGWebsite.Controllers
             // return "Test";
         }
 
-        // [HttpGet ("env")]
-        // public IEnumerable<variables> getEnv()
-        // {
-        //     IEnumerable<variables> vari = new IEnumerable<variables>();
-        //     foreach(var env in Environment.GetEnvironmentVariables()){
-        //         vari.add(env.Key, env.Value);
-        //     }
-        //     return vari;
-        // }
+        [HttpGet ("env")]
+        public IDictionary<string, string> getEnv() // test route to display all environmental variables
+        {
+            IDictionary<string, string> document = new Dictionary<string, string>();
+            foreach(DictionaryEntry e in Environment.GetEnvironmentVariables())
+            {
+                document.Add(e.Key.ToString(), e.Value.ToString());
+            }
+            return document;
+        }
 
         [HttpGet ("db/users")] /** api/db/users **/
         public ActionResult<IEnumerable<Users>> GetUsers()
